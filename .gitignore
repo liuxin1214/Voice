@@ -1,0 +1,17 @@
+# macOS 系统文件
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# 编辑器/IDE
+.idea/
+*.swp
+*.swo
+
+# 日志
+*.log
+
+# 操作系统临时文件
+Thumbs.db
