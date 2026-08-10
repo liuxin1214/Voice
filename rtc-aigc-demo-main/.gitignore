@@ -1,4 +1,4 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# See https://help.github.com/articles/ignoring-files/ for more information.
 
 # dependencies
 /node_modules
@@ -31,3 +31,7 @@ yarn.lock
 pnpm-lock.yaml
 dist/
 log/
+
+# Python cache
+__pycache__/
+*.py[cod]

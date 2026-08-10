@@ -1,34 +1,22 @@
-# Node Server
+# Python AIGC Server
 
-## 启动命令
+## 启动
+
+```bash
+cd Server
+conda activate ai_agent
+
+pip install -r requirements.txt
+python app.py
 ```
-yarn
 
-yarn dev
-```
+默认监听 `http://localhost:3001`，也可通过 `HOST`、`PORT`、`RTC_API_URL` 环境变量配置。
 
-## 使用须知
-Node 服务启动时会自动读取 `Server/scenes` 下的所有文件作为可用的场景, 并通过接口 API 返回相关信息。
+服务启动时会读取 `scenes` 下的 JSON 文件。`RTCConfig.RoomId`、`UserId`、`Token` 任一缺失时，会按原 Node.js 逻辑生成 UUID 和 24 小时 RTC Token；返回场景时会移除 `RTCConfig.AppKey`。
 
-因此，您需要：
-1. 在 `Server/scenes` 目录下参考其它 JSON 的格式, 自定义创建一个 `xxxx.json` 文件，用于描述您的场景，其中 xxxx 为场景名称。
-2. 确保您的 `.json` 文件符合模版定义(可参考 Custom.json), 大小写敏感。
-3. 新增场景 JSON 后须重启 Node 服务，保证场景信息被正常读取。
-4. JSON 文件中, 若 `RTCConfig.RoomId`、`RTCConfig.UserId`、`RTCConfig.Token` 其中之一未填写, Node 服务将自动生成对应的值以保证对话可以正常启动。
+接口保持不变：
 
+- `POST /getScenes`
+- `POST /proxy?Action=StartVoiceChat&Version=2024-12-01`，JSON body 需包含 `SceneID`
 
-## 相关参数获取
-- AccountConfig
-    - 可在 https://console.volcengine.com/iam/keymanage/ 获取 AK/SK。
-- RTCConfig
-    - AppId、AppKey 可从 https://console.volcengine.com/rtc/aigc/listRTC 中获取。
-    - RoomId、UserId 可自定义也可不填，交由服务端生成。
-- VoiceChat
-    - 可参考 https://www.volcengine.com/docs/6348/1558163 中参数描述
-    - 可通过 [快速跑通 Demo](https://console.volcengine.com/rtc/aigc/run?s=g) 快速获取参数, 跑通后点击右上角 `接入 API` 按钮复制相关代码贴到 JSON 配置文件中即可。
-
-
-## 注意
-- 相关错误会通过服务端接口返回。
-- Node 服务会根据您配置的 `VoiceChat` 中是否存在视觉模型相关的配置返回相关信息给前端页面, 从而控制相关 UI 是否展示。
-- 使用时请留意相关服务已开通。
+AccountConfig 的 AK/SK、RTC AppId/AppKey 等敏感参数请写入场景配置或部署环境，不要提交真实密钥。原 Node 文件仍保留，可用于迁移期间的行为对照。

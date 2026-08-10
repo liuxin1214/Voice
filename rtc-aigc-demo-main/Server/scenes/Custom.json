@@ -1,29 +1,29 @@
 {
   "SceneConfig": {
     "icon": "https://lf3-rtc-demo.volccdn.com/obj/rtc-aigc-assets/DoubaoAvatar.png",
-    "name": "自定义助手"
+    "name": "豆包助手"
   },
   "AccountConfig": {
     "accessKeyId": "",
     "secretKey": ""
   },
   "RTCConfig": {
-    "AppId": "",
+    "AppId": "6a4899b78143f601767c6fee",
     "AppKey": "",
-    "RoomId": "",
-    "UserId": "",
-    "Token": ""
+    "RoomId": "ChatRoom01",
+    "UserId": "Huoshan01",
+    "Token": "0016a4899b78143f601767c6feeSQByRPUCimp5agqlgmoKAENoYXRSb29tMDEJAEh1b3NoYW4wMQYAAAAKpYJqAQAKpYJqAgAKpYJqAwAKpYJqBAAKpYJqBQAKpYJqIABH0T3ypKLqPevUJlsF8GWIMOAR/oQD5rJmDJdBwnFg6Q=="
   },
   "VoiceChat": {
-    "AppId": "",
-    "RoomId": "",
-    "TaskId": "",
+    "AppId": "6a4899b78143f601767c6fee",
+    "RoomId": "ChatRoom01",
+    "TaskId": "ChatTask01",
     "AgentConfig": {
       "TargetUserId": [
-        ""
+        "Huoshan01"
       ],
       "WelcomeMessage": "你好，我是小宁，有什么需要帮忙的吗？",
-      "UserId": "",
+      "UserId": "ChatBot01",
       "EnableConversationStateCallback": true
     },
     "Config": {
@@ -31,7 +31,7 @@
         "Provider": "volcano",
         "ProviderParams": {
           "Mode": "smallmodel",
-          "AppId": "",
+          "AppId": "9415264158",
           "Cluster": "volcengine_streaming_common"
         }
       },
@@ -39,7 +39,7 @@
         "Provider": "volcano",
         "ProviderParams": {
           "app": {
-            "appid": "",
+            "appid": "9415264158",
             "cluster": "volcano_tts"
           },
           "audio": {
@@ -52,10 +52,11 @@
       },
       "LLMConfig": {
         "Mode": "ArkV3",
-        "EndPointId": "",
+        "EndPointId": "ep-20260810134417-6rh2b",
         "SystemMessages": [
           "你是小宁，性格幽默又善解人意。你在表达时需简明扼要，有自己的观点。"
         ],
+        "ThinkingType": "disabled",
         "VisionConfig": {
           "Enable": false
         }
