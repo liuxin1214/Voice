@@ -1,0 +1,22 @@
+[project]
+name = "rtc-aigc-demo-main"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "xinliu", email = "17625236456@wo.cn" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi==0.115.6",
+    "httpx==0.28.1",
+    "uvicorn[standard]==0.34.0",
+    "volcengine-python-sdk[ark]>=5.0.44",
+]
+
+[project.scripts]
+rtc-aigc-demo-main = "rtc_aigc_demo_main:main"
+
+[build-system]
+requires = ["uv_build>=0.12.3,<0.13.0"]
+build-backend = "uv_build"
